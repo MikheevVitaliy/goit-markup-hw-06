@@ -950,12 +950,12 @@ main.portfolio {
 .modal-close-icon {
   transition-property: fill;
   transition-duration: 250ms;
-  transition-timing-function: linear;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-delay: 0ms;
 }
 
-.modal-close-icon:hover,
-.modal-close-icon:focus {
+.modal-btn:hover > .modal-close-icon,
+.modal-btn:focus > .modal-close-icon {
   fill: #2196f3;
 }
 
@@ -1020,7 +1020,7 @@ textarea {
   cursor: pointer;
   transition-property: border;
   transition-duration: 250ms;
-  transition-timing-function: linear;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-delay: 0ms;
 }
 
@@ -1042,7 +1042,7 @@ textarea {
   transform: translateY(-50%);
   transition-property: fill;
   transition-duration: 250ms;
-  transition-timing-function: linear;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-delay: 0ms;
   cursor: pointer;
 }
@@ -1052,10 +1052,10 @@ textarea {
   fill: #2196f3;
 }
 
-.modal-icon:hover < .form-input,
-.modal-icon:focus < .form-input {
+/* .modal-icon:hover + .form-input,
+.modal-icon:focus + .form-input {
   border: 1px solid #2196f3;
-}
+} */
 
 .form-textarea {
   margin: 0;
@@ -1065,7 +1065,7 @@ textarea {
   cursor: pointer;
   transition-property: border;
   transition-duration: 250ms;
-  transition-timing-function: linear;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-delay: 0ms;
 }
 
@@ -1078,15 +1078,14 @@ textarea {
   margin: 0 8.38px 0 12px;
 }
 
-/* .modal-checkbox:hover, .modal-checkbox:focus {
-  border: 1px solid #2196F3;
-} */
-
 .agreement {
+  display: flex;
   font-size: 14px;
   line-height: 24px;
   letter-spacing: 0.03em;
   color: #757575;
+  display: inline-flex;
+  align-items: center;
 }
 
 .form-checkbox {
@@ -1096,13 +1095,36 @@ textarea {
 .checkbox-link {
   transition-property: color;
   transition-duration: 250ms;
-  transition-timing-function: linear;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-delay: 0ms;
+  margin-left: 10px;
 }
 
 .checkbox-link:hover,
 .checkbox-link:focus {
   color: #2196f3;
+}
+
+.modal-checkbox {
+  appearance: none;
+  position: absolute;
+}
+
+.agreement::before {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 15px;
+  border: 2px solid #212121;
+  border-radius: 2px;
+  margin-right: 7px;
+}
+
+.modal-checkbox:checked + .agreement::before {
+  background-image: url(../images/icon\ check.svg);
+  background-size: contain;
+  background-origin: border-box;
+  border-color: #2196f3;
 }
 
 .form-button {
@@ -1121,7 +1143,7 @@ textarea {
   cursor: pointer;
   transition-property: background-color;
   transition-duration: 250ms;
-  transition-timing-function: linear;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-delay: 0ms;
   display: block;
   margin: 0 auto;
